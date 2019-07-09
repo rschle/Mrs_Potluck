@@ -1,9 +1,13 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "root",
     "password": "pokeoak2",
     "database": "potluck_db",
     "host": "localhost",
+=======
+    "use_env_variable": "DEV_MYSQL_URL",
+>>>>>>> a74aa248e24c893ae65b6a8f62ae8c2f1e5faed9
     "dialect": "mysql"
   },
   "test": {
