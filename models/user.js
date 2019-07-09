@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    models.User.hasMany(models.Example);
+    models.User.hasMany(models.Potluck);
   };
 
   // Creating a custom method for our User model.
