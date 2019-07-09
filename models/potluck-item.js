@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
-  const PotluckItem = sequelize.define("potluck_item", {
+  const PotluckItem = sequelize.define("PotluckItem", {
     item: DataTypes.STRING,
     category: DataTypes.STRING,
     person: DataTypes.STRING
   });
 
-  PotluckItem.associate = function (models) {
+  PotluckItem.associate = function(models) {
     models.PotluckItem.belongsTo(models.Potluck, {
       onDelete: "CASCADE",
       foreignKey: {
