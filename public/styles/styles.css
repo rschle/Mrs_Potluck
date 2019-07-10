@@ -29,7 +29,6 @@ body {
   left: 25%;
   right: 10%;
 }
-
 #existingPot:hover {
   background-color: #B0E547;
   color: green;
@@ -38,7 +37,6 @@ body {
   left: 25%;
   right: 10%;
 }
-
 #newPot:hover {
   background-color: #B0E547;
   color: green;
@@ -46,4 +44,20 @@ body {
   position: relative;
   left: 25%;
   right: 10%;
+}
+
+#eventInfo {
+  width: 100%;
+}
+
+#name {
+  width: 100%;
+}
+
+#date {
+  width: 100%;
+}
+
+#descr {
+  width: 100%;
 }
