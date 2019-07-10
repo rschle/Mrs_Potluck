@@ -14,34 +14,49 @@ body {
   align-items: center;
 }
 
-.btn-lg{
+#existingPot{
   background: green;
   border: none;
-  position: absolute;
-  left: 70%;
-  top: 92%;
-  margin-left: -50px;
-  margin-bottom: 0%;
-}
-
-#existingPot{
   position: relative;
-  right: 50%;
+  left: 25%;
+  right: 10%;
 }
 #newPot{
+  background: green;
+  border: none;
   position: relative;
+  left: 25%;
+  right: 10%;
 }
-
-.btn-lg:hover {
-  background: #B0E547;
+#existingPot:hover {
+  background-color: #B0E547;
   color: green;
-  left: 70%;
-  top: 92%;
-  margin-left: -50px;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
+}
+#newPot:hover {
+  background-color: #B0E547;
+  color: green;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
 }
 
- {
- 
+#eventInfo {
+  width: 100%;
+}
 
-   
+#name {
+  width: 100%;
+}
+
+#date {
+  width: 100%;
+}
+
+#descr {
+  width: 100%;
 }
