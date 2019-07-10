@@ -20,6 +20,11 @@ module.exports = app => {
     });
   });
 
+  //load create page
+  app.get("/create", (req, res) => {
+    res.render("create");
+  });
+
   // Load example page and pass in an example by id
   app.get("/potluck/:id", isAuthenticated, (req, res) => {
     db.Potluck.findOne({ where: { id: req.params.id } }).then(dbExample => {
