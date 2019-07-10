@@ -1,3 +1,47 @@
+body {
+  margin: 0%;
+  background-image: url("https://drshefali.com/wp-content/uploads/2017/01/yellow-background-14046115834KP.jpg");
+}
 .list-group-item {
   line-height: 2.5;
+}
+.logo {
+  /* position: absolute; */
+  margin: auto;
+  top: 20%;
+  left: 30%;
+  right: 10%;
+  align-items: center;
+}
+
+.btn-lg{
+  background: green;
+  border: none;
+  position: absolute;
+  left: 70%;
+  top: 92%;
+  margin-left: -50px;
+  margin-bottom: 0%;
+}
+
+#existingPot{
+  position: relative;
+  right: 50%;
+}
+#newPot{
+  position: relative;
+}
+
+.btn-lg:hover {
+  background: #B0E547;
+  color: green;
+  left: 70%;
+  top: 92%;
+  margin-left: -50px;
+}
+
+ {
+ 
+
+   
 }
