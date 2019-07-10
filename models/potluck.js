@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    models.Potluck.belongsToMany(models.User, {through: "UserPotluck"})
   };
 
   Potluck.associate = function(models) {
