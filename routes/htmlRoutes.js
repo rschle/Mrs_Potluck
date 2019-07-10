@@ -27,10 +27,10 @@ module.exports = app => {
 
   app.get("/potlist", (req, res) => {
     res.render("potlist");
-  });
+  })
 
   //load addItem page
-  app.get("/add", (req, res) => {
+  app.get("/itemadd", (req, res) => {
     res.render("itemadd");
   });
 

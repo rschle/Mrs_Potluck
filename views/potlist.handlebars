@@ -7,11 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mrs. Potluck</title>
 </head>
-
+<div class="row">
+    <div class="col-md-2">
+        <img src="https://i.imgur.com/slj64Fx.png">
+    </div>
+    <div class="col-md-10"></div>
+</div>
 <body>
+    <h2>Your Potluck URL:<div class="potluckURL"></div> </h2>
     <div class="potluckList">
         <div class="card-header">
-            Potluck List
+            Potluck Members
         </div>
         <div class="card-body">
             <table class="table">
@@ -23,8 +29,17 @@
                     </tr>
                 </thead>
             </table>
+            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i class="fas fa-plus"></i></i></button>
         </div>
     </div>
 </body>
+<script type="text/javascript">
+    $("#addItemPage").on("click", function() {
+        $(location).attr('href', "/itemadd")
+    });
 
+    $("img").on("click", function() {
+        $(location).attr('href', "/")
+    })
+</script>
 </html>
