@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mrs. Potluck</title>
 </head>
-
 <body>
-        <div class="container">
-            <img src="https://i.imgur.com/oCII8oE.png" class="logo">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <img src="https://i.imgur.com/oCII8oE.png" class="logo">
+            </div>
+            <div class="col-md-3"></div>
         </div>
-    
-     <button type="button" class="btn btn-primary btn-lg" id="newPot">Create New Potluck <i class="fas fa-plus"></i></button>
-     <button type="button" class="btn btn-primary btn-lg" id="existingPot">View Existing Potluck <i class="fas fa-search"></i></button>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary btn-lg" id="newPot">Create New Potluck <i class="fas fa-plus"></i></button>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary btn-lg" id="existingPot">View Existing Potluck <i class="fas fa-search"></i></button>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </body>
 <style>
     .navbar {
         display: none;
     }
 </style>
+<script type="text/javascript">
+    $("#newPot").on("click", function(){
+        $(location).attr('href', "/create")
+    })
+</script>
 </html>

@@ -9,23 +9,16 @@ body {
   /* position: absolute; */
   margin: auto;
   top: 20%;
-  left: 30%;
+  left: 20%;
   right: 10%;
   align-items: center;
 }
-
-/* .btn-lg{
-  background: green;
-  border: none;
-  margin-left: -50px;
-  margin-bottom: 0%;
-} */
 
 #existingPot{
   background: green;
   border: none;
   position: relative;
-  left: 30%;
+  left: 25%;
   right: 10%;
 }
 
@@ -33,7 +26,7 @@ body {
   background: green;
   border: none;
   position: relative;
-  left: 30%;
+  left: 25%;
   right: 10%;
 }
 
@@ -42,7 +35,7 @@ body {
   color: green;
   border: none;
   position: relative;
-  left: 30%;
+  left: 25%;
   right: 10%;
 }
 
@@ -51,6 +44,6 @@ body {
   color: green;
   border: none;
   position: relative;
-  left: 30%;
+  left: 25%;
   right: 10%;
 }
