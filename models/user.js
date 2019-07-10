@@ -26,7 +26,11 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = models => {
     models.User.hasMany(models.Potluck);
+<<<<<<< HEAD
     models.User.belongsToMany(models.Potluck, { through: "UserPotluck" });
+=======
+    models.User.belongsToMany(models.Potluck, { through: "UserPotluck"})
+>>>>>>> 8d7e6ece21a19a7b90aa863b3fa76cb9cbfbb066
   };
 
   // Creating a custom method for our User model.

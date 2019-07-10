@@ -1,0 +1,29 @@
+<h1>Add new item to your Potluck</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="create-form">
+
+                <div class="form-group">
+                    <label for="name">Your name:</label>
+                    <span><input type="text" id="name" name="guestName"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="item">Your Item:</label>
+                    <span><input type="text" id="item" name="evenItem"></span>
+                </div>
+
+                <select name="category">
+                    <option value="entree">Entree</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="beverage">Beverage</option>
+                    <option value="desert">Desert</option>
+                </select>
+
+                <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
+                <button type="button" class="btn btn-primary btn-lg" id="addItem">Add</button>
+        </div>
+    </div>
+</div>
