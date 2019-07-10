@@ -4,31 +4,31 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = app => {
   // Get all examples
-  app.get("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.findAll({
+  app.get("/api/potlucks", (req, res) => {
+    db.Potluck.findAll({
       where: {
         UserId: req.user.id
       }
-    }).then(dbExamples => {
-      res.json(dbExamples);
+    }).then(dbPotlucks => {
+      res.json(dbPotlucks);
     });
   });
 
   // Create a new example
-  app.post("/api/examples", isAuthenticated, (req, res) => {
-    db.Example.create({
-      UserId: req.user.id,
-      text: req.body.text,
-      description: req.body.description
-    }).then(dbExample => {
-      res.json(dbExample);
+  app.post("/api/potlucks", isAuthenticated, (req, res) => {
+    db.Potluck.create({
+      name: req.body.name,
+      admin: req.body.admin,
+      time: req.body.time
+    }).then(dbPotluck => {
+      res.json(dbPotluck);
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", isAuthenticated, (req, res) => {
-    db.Example.destroy({ where: { id: req.params.id } }).then(dbExample => {
-      res.json(dbExample);
+  app.delete("/api/potlucks/:id", isAuthenticated, (req, res) => {
+    db.Potluck.destroy({ where: { id: req.params.id } }).then(dbPotluck => {
+      res.json(dbPotluck);
     });
   });
 

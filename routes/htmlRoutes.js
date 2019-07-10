@@ -14,15 +14,15 @@ module.exports = app => {
       where: {
         id: req.user.id
       },
-      include: [db.Example]
+      include: [db.Potluck]
     }).then(dbUser => {
       res.render("profile", { user: dbUser });
     });
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", isAuthenticated, (req, res) => {
-    db.Example.findOne({ where: { id: req.params.id } }).then(dbExample => {
+  app.get("/potluck/:id", isAuthenticated, (req, res) => {
+    db.Potluck.findOne({ where: { id: req.params.id } }).then(dbExample => {
       res.render("example", {
         example: dbExample,
         user: req.user
