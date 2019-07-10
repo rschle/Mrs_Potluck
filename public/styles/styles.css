@@ -9,7 +9,7 @@ body {
   /* position: absolute; */
   margin: auto;
   top: 20%;
-  left: 30%;
+  left: 20%;
   right: 10%;
   align-items: center;
 }
@@ -21,6 +21,7 @@ body {
   left: 25%;
   right: 10%;
 }
+
 #newPot{
   background: green;
   border: none;
@@ -59,4 +60,40 @@ body {
 
 #descr {
   width: 100%;
+}
+
+#addItem{
+  background: green;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
+}
+#cancelItem{
+  background: green;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
+}
+#addItem:hover {
+  background-color: #B0E547;
+  color: green;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
+}
+#cancelItem:hover {
+  background-color: #B0E547;
+  color: green;
+  border: none;
+  position: relative;
+  left: 25%;
+  right: 10%;
+.potluckList{
+  background: white;
+}
+.table {
+  background: white;
 }

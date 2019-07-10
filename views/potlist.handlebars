@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mrs. Potluck</title>
+</head>
+<div class="row">
+    <div class="col-md-2">
+        <img src="https://i.imgur.com/slj64Fx.png">
+    </div>
+    <div class="col-md-10"></div>
+</div>
+<body>
+    <h2>Your Potluck URL:<div class="potluckURL"></div> </h2>
+    <div class="potluckList">
+        <div class="card-header">
+            Potluck Members
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><strong>Person</strong></th>
+                        <th><strong>Item</strong></th>
+                        <th><strong>Category</strong></th>
+                    </tr>
+                </thead>
+            </table>
+            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i class="fas fa-plus"></i></i></button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $("#addItemPage").on("click", function() {
+        $(location).attr('href', "/itemadd")
+    });
+</script>
+</html>
