@@ -1,15 +1,17 @@
 body {
   margin: 0%;
+  background-image: url("https://drshefali.com/wp-content/uploads/2017/01/yellow-background-14046115834KP.jpg");
 }
 .list-group-item {
   line-height: 2.5;
 }
 .logo {
-  position: absolute;
+  /* position: absolute; */
   margin: auto;
   top: 20%;
   left: 30%;
   right: 10%;
+  align-items: center;
 }
 
 .btn-lg{
@@ -22,6 +24,14 @@ body {
   margin-bottom: 0%;
 }
 
+#existingPot{
+  position: relative;
+  right: 50%;
+}
+#newPot{
+  position: relative;
+}
+
 .btn-lg:hover {
   background: #B0E547;
   color: green;
@@ -30,8 +40,8 @@ body {
   margin-left: -50px;
 }
 
-.jumbotron {
-  background-image: url("https://www.solidbackgrounds.com/images/2560x1440/2560x1440-royal-yellow-solid-color-background.jpg");
-  padding: 80%;
+ {
+ 
+
    
 }
