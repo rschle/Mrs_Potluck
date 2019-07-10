@@ -25,6 +25,11 @@ module.exports = app => {
     res.render("create");
   });
 
+  //load addItem page
+  app.get("/add", (req, res) => {
+    res.render("itemadd");
+  });
+
   // Load example page and pass in an example by id
   app.get("/potluck/:id", isAuthenticated, (req, res) => {
     db.Potluck.findOne({ where: { id: req.params.id } }).then(dbExample => {
