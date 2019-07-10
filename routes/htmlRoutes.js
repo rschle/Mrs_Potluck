@@ -25,8 +25,12 @@ module.exports = app => {
     res.render("create");
   });
 
+  app.get("/potlist", (req, res) => {
+    res.render("potlist");
+  })
+
   //load addItem page
-  app.get("/add", (req, res) => {
+  app.get("/itemadd", (req, res) => {
     res.render("itemadd");
   });
 

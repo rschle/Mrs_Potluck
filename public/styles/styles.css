@@ -9,7 +9,7 @@ body {
   /* position: absolute; */
   margin: auto;
   top: 20%;
-  left: 30%;
+  left: 20%;
   right: 10%;
   align-items: center;
 }
@@ -21,6 +21,7 @@ body {
   left: 25%;
   right: 10%;
 }
+
 #newPot{
   background: green;
   border: none;
@@ -59,4 +60,11 @@ body {
 
 #descr {
   width: 100%;
+}
+
+.potluckList{
+  background: white;
+}
+.table {
+  background: white;
 }
