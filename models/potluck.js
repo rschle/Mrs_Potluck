@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     time: {
       type: DataTypes.STRING
+    },
+    URL: {
+      type: DataTypes.STRING
     }
   });
 
@@ -20,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
-    models.Potluck.belongsToMany(models.User, {through: "UserPotluck"})
+    models.Potluck.belongsToMany(models.User, { through: "UserPotluck" });
   };
 
   Potluck.associate = function(models) {
