@@ -12,14 +12,17 @@
 
                 <div class="form-group">
                     <label for="item">Your Item:</label>
-                    <span><input type="text" id="item" name="evenItem"></span>
+                    <span><input type="text" id="name" name="evenItem"></span>
                 </div>
 
                 <select name="category">
-                    <option value="entree">Entree</option>
-                    <option value="appetizer">Appetizer</option>
                     <option value="beverage">Beverage</option>
-                    <option value="desert">Desert</option>
+                    <option value="desert">Cutlery</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="entree">Entree</option>
+                    <option value="desert">Vegetarian</option>
+                    <option value="desert">Dessert</option>
+
                 </select>
 
                 <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
@@ -27,3 +30,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    //jQuery goes here
+    $(document).ready(function () {
+        $("#cancelItem").on("click", function ()) {
+            alert("I've been clicked!");
+        });
+
+    };
+
+    $(document).ready(function () {
+        $("#addItem").on("click", function ()) {
+            alert("I've been clicked!");
+        });
+
+    };
+
+</script>

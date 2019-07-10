@@ -26,7 +26,7 @@ module.exports = app => {
   });
 
   //load addItem page
-  app.get("/add", (req, res) => {
+  app.get("/itemadd", (req, res) => {
     res.render("itemadd");
   });
 
