@@ -28,7 +28,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="existingPot">create</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="createbtn">create</button>
                     </div>
                     <div class="col-md-10"></div>
                 </div>
@@ -41,10 +41,36 @@
 <script type="text/javascript">
     //jQuery goes here
     $(document).ready(function () {
-        $("#existingPot").on("click", function () {
+        $("#createbtn").on("click", function (e) {
+            e.preventDefault();
+            $.ajax({
+                method: "POST",
+                url: "/api/potlucks",
+                data: {
+                    name: $("#name")
+                        .val()
+                        .trim(),
+                    admin: $("#descr")
+                        .val()
+                        .trim(),
+                    time: $("#date")
+                        .val()
+                        .trim()
+                }
+            })
+                .then(function (data) {
+                    console.log(data);
+                    // window.location.replace(data);
+                    window.location.href = "/potlist";
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    alert(err.responseText);
+                });
+        });
+        {{!-- $("#createbtn").on("click", function () {
             window.location.href = '/potlist';
             return false;
-        });
+        }); --}}
     });
-
 </script>
