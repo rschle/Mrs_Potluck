@@ -36,12 +36,12 @@ module.exports = {
       };
       dummyItems.push(newItem);
       faker.seed(123);
-      for (let i = 0; i < dummyPotlucks.length; i++) {
+      for (let i = 0; i < dummyItems.length; i++) {
         count++;
         if (count % 50 === 0) {
           faker.seed(123);
         }
-        dummyPotlucks[i].admin = faker.name.findName()
+        dummyItems[i].person = faker.name.findName()
       }
     }
     return queryInterface.bulkInsert("PotluckItems", dummyItems, {});
