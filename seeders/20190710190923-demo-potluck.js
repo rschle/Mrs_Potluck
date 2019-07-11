@@ -11,10 +11,13 @@ module.exports = {
     let dummyPotlucks = [];
     let randomNumber = Math.floor(Math.random() * 50) + 1;
     for (let i = 0; i < 50; i++) {
+      let URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+      let URL2 = URL.replace(/ /g, "");
       let newPotluck = {
         name: faker.company.companyName(),
         admin: faker.name.findName(),
         time: faker.date.future(),
+        URL: URL2,
         createdAt: nowTime,
         updatedAt: nowTime,
         UserId: randomNumber
