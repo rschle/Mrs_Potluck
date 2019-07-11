@@ -13,13 +13,13 @@
             <form class="create-form">
 
                 <div class="form-group">
-                    <label for="name">Your name:</label>
-                    <span><input type="text" id="name" name="guestName"></span>
+                    <label for="person">Your name:</label>
+                    <span><input type="text" id="person" name="guestName"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="item">Your Item:</label>
-                    <span><input type="text" id="name" name="evenItem"></span>
+                    <span><input type="text" id="item" name="evenItem"></span>
                 </div>
 
                 <select name="category">
@@ -29,7 +29,6 @@
                     <option value="entree">Entree</option>
                     <option value="desert">Vegetarian</option>
                     <option value="desert">Dessert</option>
-
                 </select>
 
                 <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
@@ -46,11 +45,26 @@
             return false;
         });
 
-        $("#addItem").on("click", function () {
+        $("#addItem").on("click", function (event) {
+            event.preventDefault();
+            $.ajax({
+                method: "POST",
+                url: "/api/potluck-items",
+                data: {
+                    item: $("#item")
+                        .val()
+                        .trim(),
+                    category: $("select[name=category]")
+                        .val()
+                        .trim(),
+                    person: $("#name")
+                        .val()
+                        .trim()
+                }
+            })
             window.location.href = '/potlist';
             return false;
         });
-
     });
 
 </script>
