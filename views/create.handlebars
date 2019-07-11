@@ -39,6 +39,9 @@
 </div>
 
 <script type="text/javascript">
+    var faker = require("faker");
+    var randURL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+    var randURL2 = randURL.replace(/ /g, "")
     //jQuery goes here
     $(document).ready(function () {
         $("#newPot").on("click", function () {
@@ -49,10 +52,12 @@
                     name: $("span[name=eventName]")
                         .val()
                         .trim(),
-                    admin: ,
-                    time: ,
-                    url: ,
-                    UserId:
+                    admin: "Becca",
+                    time: $("#date")
+                        .val()
+                        .trim(),
+                    url: randURL2,
+                    UserId: 1
                 }
             })
             window.location.href = '/potlist';
