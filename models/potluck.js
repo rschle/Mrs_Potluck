@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     time: {
       type: DataTypes.STRING
+    },
+    URL: {
+      type: DataTypes.STRING
     }
   });
 

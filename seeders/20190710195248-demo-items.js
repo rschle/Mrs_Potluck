@@ -18,7 +18,7 @@ module.exports = {
         "Dessert",
         "Snack",
         "Vegetarian-Entree"
-      ]
+      ];
       let randomChoice = Math.floor(Math.random() * 6);
       let randomNumber = Math.floor(Math.random() * 50) + 1;
       let newPotluck = {

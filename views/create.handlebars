@@ -32,8 +32,19 @@
                     </div>
                     <div class="col-md-10"></div>
                 </div>
-                
+
             </form>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    //jQuery goes here
+    $(document).ready(function () {
+        $("#existingPot").on("click", function () {
+            window.location.href = '/potlist';
+            return false;
+        });
+    });
+
+</script>
