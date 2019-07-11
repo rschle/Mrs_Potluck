@@ -2,6 +2,10 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
+var faker = require("faker");
+var randURL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+var randURL2 = randURL.replace(/ /g, "")
+
 module.exports = app => {
   // Get all examples
   app.get("/api/potlucks", (req, res) => {
@@ -19,7 +23,9 @@ module.exports = app => {
     db.Potluck.create({
       name: req.body.name,
       admin: req.body.admin,
-      time: req.body.time
+      time: req.body.time,
+      url: randURL2,
+      UserId: req.user.id
     }).then(dbPotluck => {
       res.json(dbPotluck);
     });

@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form class="create-form">
+            <form id="create-form">
 
                 <div class="form-group">
                     <label for="name">Event Name:</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="newPot">create</button>
+                        <button type="submit" class="btn btn-primary btn-lg" id="newPot">create</button>
                     </div>
                     <div class="col-md-10"></div>
                 </div>
@@ -39,30 +39,31 @@
 </div>
 
 <script type="text/javascript">
-    var faker = require("faker");
-    var randURL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
-    var randURL2 = randURL.replace(/ /g, "")
-    //jQuery goes here
+    //var faker = require("faker");
+    //var randURL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+    //var randURL2 = randURL.replace(/ /g, "")
+    jQuery goes here
     $(document).ready(function () {
-        $("#newPot").on("click", function () {
+        $("#newPot").on("click", function (req) {
             $.ajax({
                 method: "POST",
                 url: "/api/potlucks",
                 data: {
-                    name: $("span[name=eventName]")
+                    name: $("input[name=eventName]")
                         .val()
                         .trim(),
-                    admin: "Becca",
+                    admin: $("#descr")
+                        .val()
+                        .trim(),
                     time: $("#date")
                         .val()
                         .trim(),
-                    url: randURL2,
-                    UserId: 1
+                    //url: randURL2,
+                    //UserId: req.user.id
                 }
             })
             window.location.href = '/potlist';
             return false;
         });
-    });
-
+    })
 </script>
