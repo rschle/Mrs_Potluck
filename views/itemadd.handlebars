@@ -42,11 +42,13 @@
     //jQuery goes here
     $(document).ready(function () {
         $("#cancelItem").on("click", function () {
-            console.log("I've been clicked!");
+            window.location.href = '/potlist';
+            return false;
         });
 
         $("#addItem").on("click", function () {
-            console.log("I've been clicked!");
+            window.location.href = '/potlist';
+            return false;
         });
 
     });
