@@ -1,5 +1,6 @@
 "use strict";
 var faker = require("faker");
+faker.seed(123);
 // paste this into terminal to seed ALL seed files (must be in seperate instance of terminal than the server running)
 //          $ npx sequelize-cli db:seed:all
 // also it may give an error if you haven't exported the line from your env into terminal:
