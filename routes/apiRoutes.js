@@ -32,6 +32,32 @@ module.exports = app => {
     });
   });
 
+  app.get("/api/potluck-items", (req, res) => {
+    db.PotluckItems.findAll({}).then(dbPotluckItems => {
+      res.json(dbPotluckItems);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/potluck-items", isAuthenticated, (req, res) => {
+    db.PotluckItem.create({
+      item: req.body.item,
+      category: req.body.category,
+      person: req.body.person
+    }).then(dbPotluckItem => {
+      res.json(dbPotluckItem);
+    });
+  });
+
+  // Delete an example by id
+  app.delete("/api/potluck-items/:id", isAuthenticated, (req, res) => {
+    db.PotluckItem.destroy({ where: { id: req.params.id } }).then(
+      dbPotluckItem => {
+        res.json(dbPotluckItem);
+      }
+    );
+  });
+
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -47,6 +73,7 @@ module.exports = app => {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
