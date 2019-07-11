@@ -9,12 +9,16 @@ $("#user-sign-up").on("submit", function(e) {
         .trim(),
       password: $("#password")
         .val()
+        .trim(),
+      name: $("#name")
+        .val()
         .trim()
     }
   })
     .then(function(data) {
       console.log(data);
-      window.location.replace(data);
+      // window.location.replace(data);
+      window.location.href = "/";
     })
     .catch(function(err) {
       console.log(err);
