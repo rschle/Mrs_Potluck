@@ -16,6 +16,16 @@
                 <input type="password" name="password" class="form-control" id="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="newAcct" class="btn btn-primary">if you do not have an account use this</button>
         </form>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+        $("#newAcct").on("click", function () {
+            window.location.href = '/signup';
+            return false;
+        });
+    });
+
+</script>

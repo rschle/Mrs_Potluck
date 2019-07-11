@@ -1,9 +1,13 @@
 const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = app => {
-  app.get("/", (req, res) => res.render("index"));
+  app.get("/", (req, res) =>
+    res.render("index", {
+      userId: req.user ? req.user.id : 0
+    })
+  );
   // Load signup page
-  // app.get("/", (req, res) => res.render("signup"));
+  app.get("/signup", (req, res) => res.render("signup"));
 
   // Load login page
   app.get("/login", (req, res) => res.render("login"));
@@ -21,16 +25,16 @@ module.exports = app => {
   });
 
   //load create page
-  app.get("/create", (req, res) => {
-    res.render("create");
+  app.get("/create", isAuthenticated, (req, res) => {
+    res.render("create", { userId: req.user.id });
   });
 
   app.get("/potlist", (req, res) => {
     res.render("potlist");
-  })
+  });
 
   //load addItem page
-  app.get("/itemadd", (req, res) => {
+  app.get("/itemadd/:potluck", (req, res) => {
     res.render("itemadd");
   });
 

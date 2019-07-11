@@ -14,7 +14,8 @@ $("#user-login").on("submit", function(e) {
   })
     .then(function(data) {
       console.log(data);
-      window.location.replace(data);
+      // window.location.replace(data);
+      window.location.href = "/";
     })
     .catch(function(err) {
       console.log(err);
