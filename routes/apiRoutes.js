@@ -19,7 +19,9 @@ module.exports = app => {
     db.Potluck.create({
       name: req.body.name,
       admin: req.body.admin,
-      time: req.body.time
+      time: req.body.time,
+      url: "cool",
+      UserId: req.user.id
     }).then(dbPotluck => {
       res.json(dbPotluck);
     });
