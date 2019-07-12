@@ -15,17 +15,17 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" id="newAcct" class="btn btn-primary">if you do not have an account use this</button>
+            <button type="submit" id="loginButton" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
+<br>
+<button type="submit" id="newAcct" class="btn btn-primary">Don't have an account? Click me!</button>
 <script type="text/javascript">
-$(document).ready(function () {
+    $(document).ready(function () {
         $("#newAcct").on("click", function () {
             window.location.href = '/signup';
             return false;
         });
     });
-
 </script>
