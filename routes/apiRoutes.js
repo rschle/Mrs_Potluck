@@ -20,9 +20,10 @@ module.exports = app => {
   app.post("/api/potlucks", isAuthenticated, (req, res) => {
     db.Potluck.create({
       name: req.body.name,
-      admin: req.body.admin,
+      admin: req.user.name,
       time: req.body.time,
       URL: URL2,
+      description: req.body.description,
       UserId: req.user.id
     }).then(dbPotluck => {
       res.json(dbPotluck.dataValues);

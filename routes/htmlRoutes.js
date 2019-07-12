@@ -35,21 +35,25 @@ module.exports = app => {
         URL: req.params.potluckURL
       }
     }).then(data => {
-      db.PotluckItem.findAll({
-        where: {
-          PotluckId: data.id
-        }
-      }).then(data2 => {
-        if (data) {
+      if (data) {
+        db.PotluckItem.findAll({
+          where: {
+            PotluckId: data.id
+          }
+        }).then(data2 => {
           return res.render("potlist", {
+            id: data.id,
+            admin: data.admin,
             URL: data.URL,
             name: data.name,
             time: data.time,
+            description: data.description,
             items: data2
           });
-        }
-        res.render("404");
-      });
+        });
+      } else {
+      res.render("404");
+      }
     });
   });
 

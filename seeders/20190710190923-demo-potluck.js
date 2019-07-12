@@ -20,6 +20,7 @@ module.exports = {
         admin: faker.name.findName(),
         time: faker.date.future(),
         URL: URL2,
+        description: "This is a party, there will be punch and pie and much revelry!",
         createdAt: nowTime,
         updatedAt: nowTime,
         UserId: randomNumber

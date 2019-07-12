@@ -15,9 +15,11 @@
 </div>
 
 <body>
-    <h2>Your Potluck URL: <div class="potluckURL"></div>
+    <h2>Your Potluck URL: <div id="potluckURL" data-url={{URL}}></div>
     </h2>
-    <p style="background-color:rgba(245, 245, 220, 0.925); text-align:center">localhost:8080/potlist/{{URL}}</p>
+    <p style="background-color:rgba(245, 245, 220, 0.925); text-align:center">
+        localhost:8080/potlist/{{URL}}
+    </p>
     <div class="potluckList">
         <div class="card-header">
             <h3 style="text-align:center">{{name}} --- {{time}}</h3>
@@ -48,8 +50,10 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
+        let potluckURL = $("#potluckURL").data('url');
         $("#addItemPage").on("click", function () {
-            $(location).attr('href', "/itemadd/")
+            //$(location).attr('href', "/itemadd/")
+            window.location.href = "/itemadd/" + potluckURL;
         });
     });
 </script>
