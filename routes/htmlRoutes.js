@@ -1,11 +1,11 @@
 const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = app => {
-  app.get("/", (req, res) =>
+  app.get("/", (req, res) => {
     res.render("index", {
-      userId: req.user ? req.user.id : 0
-    })
-  );
+      user: req.user ? req.user : 0
+    });
+  });
   // Load signup page
   app.get("/signup", (req, res) => res.render("signup"));
 
@@ -52,7 +52,7 @@ module.exports = app => {
           });
         });
       } else {
-      res.render("404");
+          res.render("404");
       }
     });
   });
