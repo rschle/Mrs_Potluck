@@ -60,6 +60,7 @@ module.exports = app => {
   //load addItem page
   app.get("/itemadd/:potluck/:id", (req, res) => {
     res.render("itemadd", {
+      user: req.user ? req.user : 0,
       potluckURL: req.params.potluck,
       potluckID: req.params.id
     });
@@ -67,15 +68,19 @@ module.exports = app => {
 
   //load allpotlucks page
   app.get("/potlist", (req, res) => {
-    db.Potluck.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then(dbpotluck => {
-      res.render("allpotlucks", {
-        potlucks: dbpotluck
+    if (req.user) {
+      db.Potluck.findAll({
+        where: {
+          UserId: req.user.id
+        }
+      }).then(dbpotluck => {
+        res.render("allpotlucks", {
+          potlucks: dbpotluck
+        });
       });
-    });
+    } else {
+      res.render("login");
+    }
   });
 
   // Load example page and pass in an example by id
@@ -89,5 +94,7 @@ module.exports = app => {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", (req, res) => res.render("404"));
+  app.get("*", (req, res) =>
+    res.render("404", { user: req.user ? req.user : 0 })
+  );
 };
