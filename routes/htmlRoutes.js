@@ -52,7 +52,11 @@ module.exports = app => {
           });
         });
       } else {
+<<<<<<< HEAD
           res.render("404");
+=======
+        res.render("404");
+>>>>>>> 99eaa12db481bcdbbf823d98c58a0c9a1a125b74
       }
     });
   });
@@ -62,6 +66,19 @@ module.exports = app => {
     res.render("itemadd", {
       potluckURL: req.params.potluck,
       potluckID: req.params.id
+    });
+  });
+
+  //load allpotlucks page
+  app.get("/allpotlucks", (req, res) => {
+    db.Potluck.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbpotluck => {
+      res.render("allpotlucks", {
+        potlucks: dbpotluck
+      });
     });
   });
 
