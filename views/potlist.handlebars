@@ -13,11 +13,16 @@
     </div>
     <div class="col-md-10"></div>
 </div>
+
 <body>
-    <h2>Your Potluck URL:<div class="potluckURL"></div> </h2>
+    <h2>Your Potluck URL: <div id="potluckURL" data-url={{URL}} data-id={{id}}></div>
+    </h2>
+    <p style="background-color:rgba(245, 245, 220, 0.925); text-align:center">
+        localhost:8080/potlist/{{URL}}
+    </p>
     <div class="potluckList">
         <div class="card-header">
-            Potluck Members
+            <h3 style="text-align:center">{{name}} --- {{time}}</h3>
         </div>
         <div class="card-body">
             <table class="table">
@@ -28,14 +33,30 @@
                         <th><strong>Category</strong></th>
                     </tr>
                 </thead>
+                <tbody>
+                    {{#each items}}
+                    <tr>
+                        <td>{{person}}</td>
+                        <td>{{item}}</td>
+                        <td>{{category}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
             </table>
-            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i class="fas fa-plus"></i></i></button>
+            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i
+                    class="fas fa-plus"></i></i></button>
         </div>
     </div>
 </body>
 <script type="text/javascript">
-    $("#addItemPage").on("click", function() {
-        $(location).attr('href', "/itemadd")
+    $(document).ready(function () {
+        let potluckURL = $("#potluckURL").data('url');
+        let potluckID = $("#potluckURL").data('id');
+        $("#addItemPage").on("click", function () {
+            //$(location).attr('href', "/itemadd/")
+            window.location.href = "/itemadd/" + potluckURL + "/" + potluckID;
+        });
     });
 </script>
+
 </html>

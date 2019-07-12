@@ -1,7 +1,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
+const faker = require("faker");
+var URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+var URL2 = URL.replace(/ /g, "");
 module.exports = app => {
   // Get all examples
   app.get("/api/potlucks", (req, res) => {
@@ -18,12 +20,15 @@ module.exports = app => {
   app.post("/api/potlucks", isAuthenticated, (req, res) => {
     db.Potluck.create({
       name: req.body.name,
-      admin: req.body.admin,
+      admin: req.user.name,
       time: req.body.time,
-      url: "cool",
+      URL: URL2,
+      description: req.body.description,
       UserId: req.user.id
     }).then(dbPotluck => {
-      res.json(dbPotluck);
+      res.json(dbPotluck.dataValues);
+      // console.log(dbPotluck);
+      // res.redirect("/potlist/cool");
     });
   });
 
@@ -40,12 +45,13 @@ module.exports = app => {
     });
   });
 
-  // Create a new example
-  app.post("/api/potluck-items", isAuthenticated, (req, res) => {
+  // Create a new potluck item
+  app.post("/api/potluck-items", (req, res) => {
     db.PotluckItem.create({
       item: req.body.item,
       category: req.body.category,
-      person: req.body.person
+      person: req.body.person,
+      PotluckId: req.body.PotluckId
     }).then(dbPotluckItem => {
       res.json(dbPotluckItem);
     });

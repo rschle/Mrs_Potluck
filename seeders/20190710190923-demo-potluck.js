@@ -10,9 +10,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let nowTime = "2019-07-10 02:43:00";
     let dummyPotlucks = [];
-    let randomNumber = Math.floor(Math.random() * 50) + 1;
     let count = 0;
     for (let i = 0; i < 50; i++) {
+      let randomNumber = Math.floor(Math.random() * 50) + 1;
       let URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
       let URL2 = URL.replace(/ /g, "");
       let newPotluck = {
@@ -20,6 +20,7 @@ module.exports = {
         admin: faker.name.findName(),
         time: faker.date.future(),
         URL: URL2,
+        description: "This is a party, there will be punch and pie and much revelry!",
         createdAt: nowTime,
         updatedAt: nowTime,
         UserId: randomNumber

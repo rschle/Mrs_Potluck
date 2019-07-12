@@ -29,13 +29,40 @@ module.exports = app => {
     res.render("create", { userId: req.user.id });
   });
 
-  app.get("/potlist", (req, res) => {
-    res.render("potlist");
+  app.get("/potlist/:potluckURL", (req, res) => {
+    db.Potluck.findOne({
+      where: {
+        URL: req.params.potluckURL
+      }
+    }).then(data => {
+      if (data) {
+        db.PotluckItem.findAll({
+          where: {
+            PotluckId: data.id
+          }
+        }).then(data2 => {
+          return res.render("potlist", {
+            id: data.id,
+            admin: data.admin,
+            URL: data.URL,
+            name: data.name,
+            time: data.time,
+            description: data.description,
+            items: data2
+          });
+        });
+      } else {
+      res.render("404");
+      }
+    });
   });
 
   //load addItem page
-  app.get("/itemadd/:potluck", (req, res) => {
-    res.render("itemadd");
+  app.get("/itemadd/:potluck/:id", (req, res) => {
+    res.render("itemadd", {
+      potluckURL: req.params.potluck,
+      potluckID: req.params.id
+    });
   });
 
   //load allpotlucks page

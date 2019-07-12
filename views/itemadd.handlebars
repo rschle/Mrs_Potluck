@@ -33,15 +33,19 @@
 
                 <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
                 <button type="button" class="btn btn-primary btn-lg" id="addItem">Add</button>
+            </form>
         </div>
     </div>
 </div>
+<div style="display:none" id="potURL" data-url={{potluckURL}} data-id={{potluckID}}></div>
 
 <script type="text/javascript">
     //jQuery goes here
     $(document).ready(function () {
+        let potURL = $("#potURL").data("url");
+        let potID = $("#potURL").data("id");
         $("#cancelItem").on("click", function () {
-            window.location.href = '/potlist';
+            window.location.href = '/potlist/' + potURL;
             return false;
         });
 
@@ -55,15 +59,18 @@
                         .val()
                         .trim(),
                     category: $("select[name=category]")
+                        .val(),
+                    person: $("#person")
                         .val()
                         .trim(),
-                    person: $("#name")
-                        .val()
-                        .trim()
+                    PotluckId: potID
                 }
-            })
-            window.location.href = '/potlist';
-            return false;
+            }).then(function (data) {
+                window.location.href = '/potlist/' + potURL;
+            }).catch(function (err) {
+                console.log(err);
+                alert(err.responseText);
+            });
         });
     });
 
