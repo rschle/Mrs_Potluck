@@ -67,15 +67,19 @@ module.exports = app => {
 
   //load allpotlucks page
   app.get("/potlist", (req, res) => {
-    db.Potluck.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then(dbpotluck => {
-      res.render("allpotlucks", {
-        potlucks: dbpotluck
+    if (req.user) {
+      db.Potluck.findAll({
+        where: {
+          UserId: req.user.id
+        }
+      }).then(dbpotluck => {
+        res.render("allpotlucks", {
+          potlucks: dbpotluck
+        });
       });
-    });
+    } else {
+      res.render("login");
+    }
   });
 
   // Load example page and pass in an example by id
