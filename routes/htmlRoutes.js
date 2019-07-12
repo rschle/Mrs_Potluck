@@ -66,7 +66,7 @@ module.exports = app => {
   });
 
   //load allpotlucks page
-  app.get("/allpotlucks", (req, res) => {
+  app.get("/potlist", (req, res) => {
     db.Potluck.findAll({
       where: {
         UserId: req.user.id

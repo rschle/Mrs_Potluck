@@ -2,8 +2,7 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const faker = require("faker");
-var URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
-var URL2 = URL.replace(/ /g, "");
+
 module.exports = app => {
   // Get all examples
   app.get("/api/potlucks", (req, res) => {
@@ -18,6 +17,8 @@ module.exports = app => {
 
   // Create a new example
   app.post("/api/potlucks", isAuthenticated, (req, res) => {
+    var URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+    var URL2 = URL.replace(/ /g, "");
     db.Potluck.create({
       name: req.body.name,
       admin: req.user.name,
