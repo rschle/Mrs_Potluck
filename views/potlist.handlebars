@@ -43,8 +43,11 @@
                     {{/each}}
                 </tbody>
             </table>
+
             <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i
                     class="fas fa-plus"></i></i></button>
+            <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
+
         </div>
     </div>
 </body>
@@ -56,6 +59,11 @@
             //$(location).attr('href', "/itemadd/")
             window.location.href = "/itemadd/" + potluckURL + "/" + potluckID;
         });
+        $("#cancelItem").on("click", function () {
+            window.location.href = '/';
+            return false;
+        });
+
     });
 </script>
 

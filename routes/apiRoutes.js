@@ -45,6 +45,19 @@ module.exports = app => {
     });
   });
 
+  //routing for displaying all of the potlucks you are a part of
+  app.get("/api/allpotlucks", (req, res) => {
+    db.potluck
+      .findAll({
+        where: {
+          UserId: req.user.id
+        }
+      })
+      .then(dbPotlucks => {
+        res.json(dbPotlucks);
+      });
+  });
+
   // Create a new potluck item
   app.post("/api/potluck-items", (req, res) => {
     db.PotluckItem.create({
