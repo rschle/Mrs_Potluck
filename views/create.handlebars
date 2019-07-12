@@ -62,18 +62,14 @@
                 }
             })
                 .then(function (data) {
-                    console.log(data);
+                    //console.log("debugging" + data);
                     // window.location.replace(data);
-                    window.location.href = "/potlist";
+                    window.location.href = "/potlist/" + data.URL;
                 })
                 .catch(function (err) {
                     console.log(err);
                     alert(err.responseText);
                 });
-        });
-        $("#createbtn").on("click", function () {
-            window.location.href = '/potlist';
-            return false;
         });
     });
 </script>

@@ -13,11 +13,14 @@
     </div>
     <div class="col-md-10"></div>
 </div>
+
 <body>
-    <h2>Your Potluck URL:<div class="potluckURL"></div> </h2>
+    <h2>Your Potluck URL: <div class="potluckURL"></div>
+    </h2>
+    <p style="background-color:rgba(245, 245, 220, 0.85); text-align:center">localhost:8080/potlist/{{URL}}</p>
     <div class="potluckList">
         <div class="card-header">
-            Potluck Members
+            <h3 style="text-align:center">{{name}} --- {{time}}</h3>
         </div>
         <div class="card-body">
             <table class="table">
@@ -27,15 +30,25 @@
                         <th><strong>Item</strong></th>
                         <th><strong>Category</strong></th>
                     </tr>
+                    {{#each items}}
+                    <tr>
+                        <ti></ti>
+                    </tr>
+                    {{/each}}
                 </thead>
             </table>
-            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i class="fas fa-plus"></i></i></button>
+            <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i
+                    class="fas fa-plus"></i></i></button>
         </div>
     </div>
 </body>
 <script type="text/javascript">
-    $("#addItemPage").on("click", function() {
-        $(location).attr('href', "/itemadd")
+    $(document).ready(function () {
+        //get db data where potluck url = req.params.potluckURL
+        $("#addItemPage").on("click", function () {
+            $(location).attr('href', "/itemadd")
+        });
     });
 </script>
+
 </html>
