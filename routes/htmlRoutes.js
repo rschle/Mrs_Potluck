@@ -52,11 +52,7 @@ module.exports = app => {
           });
         });
       } else {
-<<<<<<< HEAD
-          res.render("404");
-=======
         res.render("404");
->>>>>>> 99eaa12db481bcdbbf823d98c58a0c9a1a125b74
       }
     });
   });
