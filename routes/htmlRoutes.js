@@ -29,8 +29,29 @@ module.exports = app => {
     res.render("create", { userId: req.user.id });
   });
 
-  app.get("/potlist", (req, res) => {
-    res.render("potlist");
+  app.get("/potlist/:potluckURL", (req, res) => {
+    db.Potluck.findOne({
+      where: {
+        URL: req.params.potluckURL
+      }
+    }).then(data => {
+      db.PotluckItem.findAll({
+        where: {
+          PotluckId: data.id
+        }
+      }).then(data2 => {
+        if (data) {
+          console.log(data2);
+          return res.render("potlist", {
+            URL: data.URL,
+            name: data.name,
+            time: data.time,
+            items: data2
+          });
+        }
+        res.render("404");
+      });
+    });
   });
 
   //load addItem page
