@@ -42,7 +42,7 @@
     //var faker = require("faker");
     //var randURL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
     //var randURL2 = randURL.replace(/ /g, "")
-    jQuery goes here
+    //jQuery goes here
     $(document).ready(function () {
         $("#createbtn").on("click", function (e) {
             e.preventDefault();
@@ -71,9 +71,9 @@
                     alert(err.responseText);
                 });
         });
-        {{!-- $("#createbtn").on("click", function () {
+        $("#createbtn").on("click", function () {
             window.location.href = '/potlist';
             return false;
-        }); --}}
+        });
     });
 </script>
