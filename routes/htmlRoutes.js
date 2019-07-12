@@ -58,8 +58,11 @@ module.exports = app => {
   });
 
   //load addItem page
-  app.get("/itemadd/:potluck", (req, res) => {
-    res.render("itemadd");
+  app.get("/itemadd/:potluck/:id", (req, res) => {
+    res.render("itemadd", {
+      potluckURL: req.params.potluck,
+      potluckID: req.params.id
+    });
   });
 
   // Load example page and pass in an example by id

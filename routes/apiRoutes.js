@@ -45,12 +45,13 @@ module.exports = app => {
     });
   });
 
-  // Create a new example
-  app.post("/api/potluck-items", isAuthenticated, (req, res) => {
+  // Create a new potluck item
+  app.post("/api/potluck-items", (req, res) => {
     db.PotluckItem.create({
       item: req.body.item,
       category: req.body.category,
-      person: req.body.person
+      person: req.body.person,
+      PotluckId: req.body.PotluckId
     }).then(dbPotluckItem => {
       res.json(dbPotluckItem);
     });
