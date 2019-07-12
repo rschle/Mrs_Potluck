@@ -1,33 +1,26 @@
-# node-handlebars-passport-boilerplate 🍽️
-
-## Introduction
-
-This project is meant to be boilerplate for express, sequelize, handlebars, and passport.
+# Mrs. Potluck
 
 
-## Installation
+Description
+------------
+The Eat-Da-Burger app allows the user to add the names of burgers they want to eat by typing in the input field the name of the burger and clicking the submit button. Once the burger has been added to the menu, the user can choose to devour the burger by clicking the "Devour" button next to it. This will then cause the burger to move to the "Devoured Burgers" section underneath the menu on the homepage. 
 
-1. Create a mysql database called `exampledb`
+Homepage Preview
+------------
 
-2. Update the `config.json` to match your local database, username, password
 
-3. Add a `.env` at the top level of this project. 
+<img width="1345" alt="Screen Shot 2019-07-12 at 2 04 10 PM" src="https://user-images.githubusercontent.com/50416482/61158533-0c59fe80-a4ae-11e9-9397-75ca2ab54590.png">
 
-4. Then inside of the .env add a SERVER_SECRET set to any value you'd like
-```
-SERVER_SECRET = 123456
-```
+Technologies
+------------
+* HTML
+* Handlebars (including the use of partials)
+* Javascript
+* Sequelize
+* jQuery
+* Node.js
+* Various NPM packages including Express, Path, and MySql
+* mySQl Workbench
+* Model-View-Controller (MVC)
+* Heroku
 
-5. `npm install`
-
-6. `node server.js`
-
-## Demo of this App
-
-You can find a demo of this app here:
-
-https://node-passport-sequelize.herokuapp.com/
-
-## GitHub for this App
-
-https://github.com/Travo100/project-two-starter-code-with-auth
