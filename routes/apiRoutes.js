@@ -1,7 +1,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
+const faker = require("faker");
+var URL = faker.lorem.words() + faker.lorem.words() + faker.lorem.words();
+var URL2 = URL.replace(/ /g, "");
 module.exports = app => {
   // Get all examples
   app.get("/api/potlucks", (req, res) => {
@@ -20,10 +22,12 @@ module.exports = app => {
       name: req.body.name,
       admin: req.body.admin,
       time: req.body.time,
-      url: "cool",
+      URL: URL2,
       UserId: req.user.id
     }).then(dbPotluck => {
-      res.json(dbPotluck);
+      res.json(dbPotluck.dataValues);
+      // console.log(dbPotluck);
+      // res.redirect("/potlist/cool");
     });
   });
 
