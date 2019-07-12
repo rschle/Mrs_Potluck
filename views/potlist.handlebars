@@ -31,6 +31,7 @@
                         <th><strong>Person</strong></th>
                         <th><strong>Item</strong></th>
                         <th><strong>Category</strong></th>
+                        <th><strong></strong></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,9 @@
                         <td>{{person}}</td>
                         <td>{{item}}</td>
                         <td>{{category}}</td>
+                        <td>
+                        <i class="fas fa-minus-square"></i>
+                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -56,7 +60,18 @@
             //$(location).attr('href', "/itemadd/")
             window.location.href = "/itemadd/" + potluckURL + "/" + potluckID;
         });
+
+
+        $(".fas.fa-minus-square").on("click", function() {
+            //console.log("I've been clicked!")
+            $.ajax({
+                method: "DELETE",
+                url: 
+            })
+        })
     });
+
+
 </script>
 
 </html>
