@@ -41,7 +41,6 @@ module.exports = app => {
         }
       }).then(data2 => {
         if (data) {
-          console.log(data2);
           return res.render("potlist", {
             URL: data.URL,
             name: data.name,

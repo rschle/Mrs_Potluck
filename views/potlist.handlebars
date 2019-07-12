@@ -17,7 +17,7 @@
 <body>
     <h2>Your Potluck URL: <div class="potluckURL"></div>
     </h2>
-    <p style="background-color:rgba(245, 245, 220, 0.85); text-align:center">localhost:8080/potlist/{{URL}}</p>
+    <p style="background-color:rgba(245, 245, 220, 0.925); text-align:center">localhost:8080/potlist/{{URL}}</p>
     <div class="potluckList">
         <div class="card-header">
             <h3 style="text-align:center">{{name}} --- {{time}}</h3>
@@ -30,12 +30,16 @@
                         <th><strong>Item</strong></th>
                         <th><strong>Category</strong></th>
                     </tr>
+                </thead>
+                <tbody>
                     {{#each items}}
                     <tr>
-                        <ti></ti>
+                        <td>{{person}}</td>
+                        <td>{{item}}</td>
+                        <td>{{category}}</td>
                     </tr>
                     {{/each}}
-                </thead>
+                </tbody>
             </table>
             <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i
                     class="fas fa-plus"></i></i></button>
@@ -44,9 +48,8 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
-        //get db data where potluck url = req.params.potluckURL
         $("#addItemPage").on("click", function () {
-            $(location).attr('href', "/itemadd")
+            $(location).attr('href', "/itemadd/")
         });
     });
 </script>
