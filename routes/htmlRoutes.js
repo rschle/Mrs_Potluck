@@ -35,28 +35,34 @@ module.exports = app => {
         URL: req.params.potluckURL
       }
     }).then(data => {
-      db.PotluckItem.findAll({
-        where: {
-          PotluckId: data.id
-        }
-      }).then(data2 => {
-        if (data) {
-          console.log(data2);
+      if (data) {
+        db.PotluckItem.findAll({
+          where: {
+            PotluckId: data.id
+          }
+        }).then(data2 => {
           return res.render("potlist", {
+            id: data.id,
+            admin: data.admin,
             URL: data.URL,
             name: data.name,
             time: data.time,
+            description: data.description,
             items: data2
           });
-        }
-        res.render("404");
-      });
+        });
+      } else {
+      res.render("404");
+      }
     });
   });
 
   //load addItem page
-  app.get("/itemadd/:potluck", (req, res) => {
-    res.render("itemadd");
+  app.get("/itemadd/:potluck/:id", (req, res) => {
+    res.render("itemadd", {
+      potluckURL: req.params.potluck,
+      potluckID: req.params.id
+    });
   });
 
   // Load example page and pass in an example by id

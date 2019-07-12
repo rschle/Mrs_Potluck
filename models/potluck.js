@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     URL: {
       type: DataTypes.STRING
-    }
+    },
+    description: DataTypes.TEXT
   });
 
   Potluck.associate = function(models) {
