@@ -27,6 +27,9 @@
         <ul class="navbar-nav mr-auto">
           {{#if user}}
           <li class="nav-item">
+            <p>Hello {{user.name}}</p>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/profile">Profile</a>
           </li>
           {{/if}}
@@ -34,11 +37,11 @@
         <ul class="navbar-nav">
           {{#unless user}}
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link home-link" href="/">Home</a>
           </li>
-          {{!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
-          </li> --}}
+          </li>
           {{/unless}}
           {{#if user}}
           <li class="nav-item">
