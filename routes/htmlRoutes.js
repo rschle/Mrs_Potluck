@@ -38,6 +38,11 @@ module.exports = app => {
     res.render("itemadd");
   });
 
+  //load allpotlucks page
+  app.get("/allpotlucks", (req, res) => {
+    res.render("allpotlucks");
+  });
+
   // Load example page and pass in an example by id
   app.get("/potluck/:id", isAuthenticated, (req, res) => {
     db.Potluck.findOne({ where: { id: req.params.id } }).then(dbExample => {
