@@ -52,7 +52,7 @@ module.exports = app => {
           });
         });
       } else {
-      res.render("404");
+        res.render("404");
       }
     });
   });
@@ -62,6 +62,19 @@ module.exports = app => {
     res.render("itemadd", {
       potluckURL: req.params.potluck,
       potluckID: req.params.id
+    });
+  });
+
+  //load allpotlucks page
+  app.get("/allpotlucks", (req, res) => {
+    db.Potluck.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbpotluck => {
+      res.render("allpotlucks", {
+        potlucks: dbpotluck
+      });
     });
   });
 

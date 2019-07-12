@@ -47,8 +47,11 @@
                     {{/each}}
                 </tbody>
             </table>
+
             <button type="button" class="btn btn-primary btn-lg" id="addItemPage">Add an item <i
                     class="fas fa-plus"></i></i></button>
+            <button type="button" class="btn btn-primary btn-lg" id="cancelItem">Cancel</button>
+
         </div>
     </div>
 </body>
@@ -61,7 +64,6 @@
             window.location.href = "/itemadd/" + potluckURL + "/" + potluckID;
         });
 
-
        // $(".fas.fa-minus-square").on("click", function() {
             //console.log("I've been clicked!")
             //$.ajax({
@@ -69,6 +71,11 @@
                // url: "/api/potluck-items" 
             //})
         //})
+        $("#cancelItem").on("click", function () {
+            window.location.href = '/';
+            return false;
+        });
+
     });
 
 
