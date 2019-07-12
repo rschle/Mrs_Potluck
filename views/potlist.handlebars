@@ -41,7 +41,7 @@
                         <td>{{item}}</td>
                         <td>{{category}}</td>
                         <td>
-                        <i class="fas fa-minus-square"></i>
+                            <i class="fas fa-minus-square" data-id="{{id}}"></i>
                         </td>
                     </tr>
                     {{/each}}
@@ -64,13 +64,20 @@
             window.location.href = "/itemadd/" + potluckURL + "/" + potluckID;
         });
 
-       // $(".fas.fa-minus-square").on("click", function() {
-            //console.log("I've been clicked!")
-            //$.ajax({
-               // method: "DELETE",
-               // url: "/api/potluck-items" 
-            //})
-        //})
+        $(".fas.fa-minus-square").on("click", function () {
+            console.log("I've been clicked!")
+            var id = $(this).attr("data-id");
+            $.ajax({
+                method: "DELETE",
+                url: "/api/potluck-items/" + id,
+            })
+                .then(function () {
+                    console.log("Deleted successfully!")
+                });
+            $(this).closest("tr").remove();
+
+        });
+
         $("#cancelItem").on("click", function () {
             window.location.href = '/';
             return false;
