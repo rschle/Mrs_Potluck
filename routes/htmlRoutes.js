@@ -52,7 +52,7 @@ module.exports = app => {
           });
         });
       } else {
-      res.render("404");
+        res.render("404");
       }
     });
   });
@@ -67,7 +67,15 @@ module.exports = app => {
 
   //load allpotlucks page
   app.get("/allpotlucks", (req, res) => {
-    res.render("allpotlucks");
+    db.Potluck.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(dbpotluck => {
+      res.render("allpotlucks", {
+        potlucks: dbpotluck
+      });
+    });
   });
 
   // Load example page and pass in an example by id

@@ -2,7 +2,24 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            {{!-- div to show potlucks go here. make them links --}}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><strong>Name</strong></th>
+                        <th><strong>Date</strong></th>
+                        <th><strong>Description</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each potlucks}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{time}}</td>
+                        <td>{{description}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="row">
