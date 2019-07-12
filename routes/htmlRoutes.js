@@ -60,6 +60,7 @@ module.exports = app => {
   //load addItem page
   app.get("/itemadd/:potluck/:id", (req, res) => {
     res.render("itemadd", {
+      user: req.user ? req.user : 0,
       potluckURL: req.params.potluck,
       potluckID: req.params.id
     });
@@ -93,5 +94,7 @@ module.exports = app => {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", (req, res) => res.render("404"));
+  app.get("*", (req, res) =>
+    res.render("404", { user: req.user ? req.user : 0 })
+  );
 };
